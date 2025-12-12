@@ -1,0 +1,9 @@
+console.log("Sum module executed");
+
+var x = "Hello World"; 
+function calculateSum(a,b){
+    const sum =a+b;
+    console.log(sum);
+}
+
+module.exports = calculateSum;
