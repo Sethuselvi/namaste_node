@@ -6,4 +6,4 @@ function calculateSum(a,b){
     console.log(sum);
 }
 
-module.exports = {x:x ,calculateSum:calculateSum};
+module.exports = {x ,calculateSum};
