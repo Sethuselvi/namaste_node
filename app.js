@@ -1,6 +1,5 @@
-import {x,calculateSum} from './sum.js';
-// const {x,calculateSum} = require('./sum.js')
-// require('./xyz.js')
+const {x,calculateSum} = require('./sum.js')
+require('./xyz.js')
 var name = "Namaste Nodejs";
 var a= 10;
 var b=20;
