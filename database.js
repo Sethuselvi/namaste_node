@@ -8,30 +8,34 @@ async function main(){
     console.log('Connected successfully to server');
     const db = client.db('Helloworld')
 const collection = db.collection('User')
-const data ={
-    firstname: 'Arulan',
-    lastname: 'Sathuguru',
-    city: 'Chennai',
-    country: 'India',
-    phone_number: '97463544646'
-}
+// const data ={
+//     firstname: 'Arulan',
+//     lastname: 'Sathuguru',
+//     city: 'Chennai',
+//     country: 'India',
+//     phone_number: '97463544646'
+// }
 //Insert many
 // const insertResult = await collection.insertMany([data]);
 // console.log('Inserted documents =>', insertResult);
 //InsertOne
-const insertResult = await collection.insertOne(data);
-console.log('Inserted documents =>', insertResult);
+// const insertResult = await collection.insertOne(data);
+// console.log('Inserted documents =>', insertResult);
 const findResult = await collection.find({}).toArray();
 console.log('Found documents =>', findResult);
 const result = await collection.find({firstname: 'Deepika'}).toArray();
 console.log('Found documents =>', result);
 const countResult = await collection.countDocuments({});
 console.log('Count of the documents in user collection =>', countResult);
+const updated_result = await collection.updateMany({firstname: 'Arulan'},{ $set: { lastname: 'Guru' } });
+console.log('Updated documents =>', updated_result);
+const deleteResult = await collection.deleteMany({firstname: 'Arulan'})
+console.log('Deleted documents =>', deleteResult);
 
 
 return 'Done!'
 }
 //When the promise resolves successfully, the resolved value is automatically passed as an argument to the console.log function
-main().then(console.log).catch(console.error).finally(()=>client.close())
+main().then(console.log).catch(console.error).finally(async ()=> await client.close());
 
 
